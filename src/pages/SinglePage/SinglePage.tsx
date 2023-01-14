@@ -1,23 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import './EventPage.scss'
+import './SinglePage.scss'
 import EastIcon from "@mui/icons-material/East";
 import {Link} from "react-router-dom";
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import useService from "../../hooks/useService";
+import {Cards} from '../../components/types/types'
 
-const EventPage = ({imageUrl, title, summary}: any) => {
-    const [blog, setBlog] = useState([]);
-    const {getBlogById} = useService();
 
-    const updateBlog = () => {
 
-        // @ts-ignore
-        getBlogById().then((data) => setBlog(data)).then((id) => console.log(id))
-    }
+const SinglePage = (card: Cards) => {
+    const {getBlogById}: any = useService();
+    const {imageUrl, id, title, summary} = card;
 
     useEffect(() => {
-        updateBlog()
-    }, [])
+        getBlogById(id);
+    },[])
 
     return (
         <ErrorBoundary>
@@ -25,7 +22,8 @@ const EventPage = ({imageUrl, title, summary}: any) => {
                 <img src={imageUrl}
                      className={'event_img'}
                      alt=""/>
-                <div className={'event_card'}>
+                <div className={'event_card'}
+                     key={id}>
                     <h1 className={'event_card-header'}>{title}</h1>
                     <p className={'event_card-text'}>{summary}</p>
                 </div>
@@ -39,4 +37,4 @@ const EventPage = ({imageUrl, title, summary}: any) => {
     );
 }
 
-export default EventPage;
+export default SinglePage;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Main from "../../pages/Main/Main";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import EventPage from "../../pages/EventPage/EventPage";
+import SinglePage from "../../pages/SinglePage/SinglePage";
 import {Provider} from "react-redux";
 import store from "../redux/store";
 
@@ -11,7 +11,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path={'/'} element={<Main/>}/>
-                    <Route path={'/event'} element={<EventPage/>}/>
+                    <Route path={'/event'} element={<SinglePage/>}/>
                 </Routes>
             </BrowserRouter>
         </Provider>

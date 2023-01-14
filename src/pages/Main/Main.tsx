@@ -13,20 +13,13 @@ const Main = () => {
     const [card, setCard] = useState<any>();
     const {request} = useHttp()
     const dispatch = useDispatch()
-    const blogs = useSelector(selectFilteredBlogs)
+
     // @ts-ignore
 
-    useEffect(() => {
-        dispatch(
-            FILTER_BY_SEARCH({
-                blogs, search
-            })
-        )
-    }, [dispatch, blogs, search]);
 
     useEffect(() => {
-        request('https://api.spaceflightnewsapi.net/v3/blogs')
-            .then((data) => setCard(data))
+       request('https://api.spaceflightnewsapi.net/v3/blogs')
+            .then((response) => setCard(response))
     }, [request])
 
     return (

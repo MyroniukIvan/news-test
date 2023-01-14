@@ -1,9 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-    blog: [],
     filteredSearch: [],
-
 }
 
 const filterSlice = createSlice({
@@ -11,8 +9,8 @@ const filterSlice = createSlice({
     initialState,
     reducers: {
         FILTER_BY_SEARCH(state, action) {
-            const {blog, search} = action.payload
-            state.filteredSearch = blog.filter((blog: { title: string; summary: string }) => blog.title.toLowerCase().includes(search.toLowerCase()) || blog.summary.toLowerCase().includes(search.toLowerCase()))
+            const {blog} = action.payload
+            state.filteredSearch = blog.filter(((blog: any) => blog === action.payload))
         },
     }
 })

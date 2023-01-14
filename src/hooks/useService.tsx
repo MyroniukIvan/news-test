@@ -4,7 +4,7 @@ const UseService = () => {
     const {request, error, loading} = useHttp()
 
     const getBlogById = async (id: number) => {
-        let res = await request(`https://api.spaceflightnewsapi.net/v3/blogs/1`)
+        let res = await request(`https://api.spaceflightnewsapi.net/v3/blogs/${id}`)
         return  _transformBlog(res)
     }
     const _transformBlog = (blog: { imageUrl: any; id?: number; title: any; summary: any; }) => {
