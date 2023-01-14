@@ -8,8 +8,7 @@ import useService from "../../hooks/useService";
 const EventPage = ({imageUrl, title, summary}: any) => {
     const [blog, setBlog] = useState([]);
     const {getBlogById} = useService();
-    // @ts-ignore
-    const {id}: number = blog;
+
     const updateBlog = () => {
 
         // @ts-ignore

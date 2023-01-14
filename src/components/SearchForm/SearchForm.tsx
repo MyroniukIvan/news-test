@@ -1,14 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './SearchForm.scss';
 import SearchIcon from '@mui/icons-material/Search';
 
-const SearchPanel = () => {
-    const [term, setTerm] = useState();
-
-    const onUpdateSearch = (e: { target: { value: any; }; }) => {
-        const term = e.target.value;
-        setTerm(term)
-    };
+const SearchPanel = ({value, onChange}: { value: any, onChange: any }) => {
 
     return (
         <div className={'search_form-block'}>
@@ -19,8 +13,8 @@ const SearchPanel = () => {
                 className={'search_form'}
                 type={'text'}
                 placeholder={'Search for the available news & blogs!'}
-                value={term}
-                onChange={(e) => onUpdateSearch(e)}/>
+                value={value}
+                onChange={onChange}/>
             <div className={'search_form-results'}>
                 <p>Results: 6</p>
             </div>
