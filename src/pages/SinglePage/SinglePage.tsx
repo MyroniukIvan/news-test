@@ -6,11 +6,11 @@ import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import {useHttp} from "../../hooks/useHttp";
 import card from '../Main/Main';
 
-const SinglePage = () => {
+const SinglePage = ({title, imageUrl, id, summary}: any) => {
     const [singleBlog, setSingleBlog] = useState();
     const {request} = useHttp();
 
-const [title, imageUrl, id, summary]: any = card
+
 
     return (
         <ErrorBoundary>
