@@ -10,8 +10,8 @@ import './Card.scss';
 import {Link} from "react-router-dom";
 
 
-export default function RecipeReviewCard({ title, updatedAt, summary, imageUrl,}
-                                             : {updatedAt: string, summary: string, title: string, imageUrl: any, id: any }) {
+export default function RecipeReviewCard({ title, updatedAt, summary, imageUrl,id}
+                                             : {updatedAt: string, summary: string, title: string, imageUrl: any, id:any  }) {
     const [time, setTime] = useState<string>();
 
     useEffect(() => {
@@ -56,7 +56,7 @@ export default function RecipeReviewCard({ title, updatedAt, summary, imageUrl,}
                 }} variant="body2" color="text.main">
                     {summary ? `${summary.slice(0, 100)}...` : 'There is no description for this blog!'}
                 </Typography>
-                <Link to={'/event'}
+                <Link to={`/event/${id}`}
                       className={'card_content-button'}>
                     Read More
                     <EastIcon sx={{width: 12, height: 15,}}/>
