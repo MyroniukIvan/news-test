@@ -48,7 +48,7 @@ export default function RecipeReviewCard({title, updatedAt, summary, imageUrl}
                     fontSize: "16px",
                     lineHeight: "150%"
                 }} variant="body2" color="text.main">
-                    {summary ? `${summary.slice(0, 100)}...`  : 'There is no description for this blog!'}
+                    {summary ? `${summary.slice(0, 75)}...`  : 'There is no description for this blog!'}
                 </Typography>
                 <Link to={'/event'}
                       className={'card_content-button'}>

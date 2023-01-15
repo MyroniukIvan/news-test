@@ -60,3 +60,23 @@ input {
     width: 100%;
   }
 }
+@media screen and (max-width: 420px) {
+  .search_form {
+    width: 100%;
+  }
+  input{
+    &::placeholder{
+      font-size: small;
+      padding: 20px;
+      text-align: center;
+
+    }
+  }
+  .search_icon {
+    text-wrap: normal;
+    position: absolute;
+    left: 15%;
+    width: 10px;
+    height: 10px;
+  }
+}

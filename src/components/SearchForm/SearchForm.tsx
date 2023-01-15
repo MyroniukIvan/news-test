@@ -18,7 +18,7 @@ const SearchPanel = ({value, onChange}: { value: any, onChange: any }) => {
                 maxLength={50}
                 className={'search_form'}
                 type={'text'}
-                placeholder={'Search for the available news & blogs!'}
+                placeholder={'Search for the available news!'}
                 value={value}
                 onChange={onChange}/>
             <div className={'search_form-results'}>
