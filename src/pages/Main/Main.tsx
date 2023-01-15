@@ -4,7 +4,6 @@ import SearchForm from "../../components/SearchForm/SearchForm";
 import Card from '../../components/Card/Card';
 import {useHttp} from "../../hooks/useHttp";
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
-import {useDispatch, useSelector} from "react-redux";
 import {FILTER_BY_SEARCH, selectFilteredBlogs} from "../../components/redux/slice/filterSlice";
 
 
@@ -12,15 +11,12 @@ const Main = () => {
     const [search, setSearch] = useState('');
     const [card, setCard] = useState<any>();
     const {request} = useHttp()
-    const dispatch = useDispatch()
-
-    // @ts-ignore
-
-
+    
     useEffect(() => {
-       request('https://api.spaceflightnewsapi.net/v3/blogs')
+        request('https://api.spaceflightnewsapi.net/v3/blogs')
             .then((response) => setCard(response))
     }, [request])
+
 
     return (
         <>

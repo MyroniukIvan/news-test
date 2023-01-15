@@ -3,18 +3,14 @@ import './SinglePage.scss'
 import EastIcon from "@mui/icons-material/East";
 import {Link} from "react-router-dom";
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
-import useService from "../../hooks/useService";
-import {Cards} from '../../components/types/types'
+import {useHttp} from "../../hooks/useHttp";
+import card from '../Main/Main';
 
+const SinglePage = () => {
+    const [singleBlog, setSingleBlog] = useState();
+    const {request} = useHttp();
 
-
-const SinglePage = (card: Cards) => {
-    const {getBlogById}: any = useService();
-    const {imageUrl, id, title, summary} = card;
-
-    useEffect(() => {
-        getBlogById(id);
-    },[])
+const [title, imageUrl, id, summary]: any = card
 
     return (
         <ErrorBoundary>
