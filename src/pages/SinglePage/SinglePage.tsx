@@ -4,7 +4,6 @@ import EastIcon from "@mui/icons-material/East";
 import {Link} from "react-router-dom";
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import {useHttp} from "../../hooks/useHttp";
-import card from '../Main/Main';
 
 const SinglePage = ({title, imageUrl, id, summary}: any) => {
     const [singleBlog, setSingleBlog] = useState();

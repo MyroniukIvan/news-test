@@ -21,7 +21,7 @@ export default function RecipeReviewCard({title, updatedAt, summary, imageUrl}
     }, [time, updatedAt])
 
     return (
-        <Card sx={{maxWidth: 400, maxHeight: 530, textAlign:'left'}}>
+        <Card sx={{alignItems:'center',maxWidth: 400, maxHeight: 530, minWidth: 230, minHeight: 530, textAlign: 'left'}}>
             <CardMedia
                 sx={{objectFit: 'cover'}}
                 component="img"
@@ -48,7 +48,7 @@ export default function RecipeReviewCard({title, updatedAt, summary, imageUrl}
                     fontSize: "16px",
                     lineHeight: "150%"
                 }} variant="body2" color="text.main">
-                    {summary ? `${summary.slice(0, 75)}...`  : 'There is no description for this blog!'}
+                    {summary ? `${summary.slice(0, 75)}...` : 'There is no description for this blog!'}
                 </Typography>
                 <Link to={'/event'}
                       className={'card_content-button'}>
