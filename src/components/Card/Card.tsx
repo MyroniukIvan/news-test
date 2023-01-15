@@ -10,8 +10,8 @@ import './Card.scss';
 import {Link} from "react-router-dom";
 
 
-export default function RecipeReviewCard({title, updatedAt, summary, imageUrl}
-                                             : { updatedAt: string, summary: string, title: string, imageUrl: any }) {
+export default function RecipeReviewCard({ title, updatedAt, summary, imageUrl,}
+                                             : {updatedAt: string, summary: string, title: string, imageUrl: any, id: any }) {
     const [time, setTime] = useState<string>();
 
     useEffect(() => {
@@ -21,7 +21,14 @@ export default function RecipeReviewCard({title, updatedAt, summary, imageUrl}
     }, [time, updatedAt])
 
     return (
-        <Card sx={{alignItems:'center',maxWidth: 400, maxHeight: 530, minWidth: 230, minHeight: 530, textAlign: 'left'}}>
+        <Card sx={{
+            alignItems: 'center',
+            maxWidth: 400,
+            maxHeight: 550,
+            minWidth: 230,
+            minHeight: 530,
+            textAlign: 'left'
+        }}>
             <CardMedia
                 sx={{objectFit: 'cover'}}
                 component="img"
@@ -30,25 +37,24 @@ export default function RecipeReviewCard({title, updatedAt, summary, imageUrl}
                 image={imageUrl}
                 alt="Event Image"
             />
-            <CardContent
-                sx={{padding: '20px'}}>
+            <CardContent>
                 <div
                     style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
                     <CalendarTodayIcon
                         sx={{height: "20px", color: '#363636', opacity: '0.6'}}/>
                     <Typography
-                        sx={{fontSize: "14px", paddingBlock: '20px'}} className={'card_header-block'}>
+                        sx={{fontSize: "14px", paddingBlock: "10px"}} className={'card_header-block'}>
                         {time}
                     </Typography>
                 </div>
                 <h1 className={'card_content-header'}>
-                    {title}
+                    {title ? `${title.slice(0, 100)}...` : 'There is no title for this article'}
                 </h1>
                 <Typography sx={{
                     fontSize: "16px",
-                    lineHeight: "150%"
+                    lineHeight: "100%"
                 }} variant="body2" color="text.main">
-                    {summary ? `${summary.slice(0, 75)}...` : 'There is no description for this blog!'}
+                    {summary ? `${summary.slice(0, 100)}...` : 'There is no description for this blog!'}
                 </Typography>
                 <Link to={'/event'}
                       className={'card_content-button'}>

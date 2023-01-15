@@ -11,9 +11,9 @@ const Main = () => {
     const [search, setSearch] = useState('');
     const [card, setCard] = useState<any>();
     const {request} = useHttp()
-    
+
     useEffect(() => {
-        request('https://api.spaceflightnewsapi.net/v3/blogs')
+        request('https://api.spaceflightnewsapi.net/v3/articles/')
             .then((response) => setCard(response))
     }, [request])
 
@@ -27,9 +27,10 @@ const Main = () => {
                 </ErrorBoundary>
                 <ErrorBoundary>
                     <div className={'card_container'}>
-                        {card?.map((el: { updatedAt: string; id: number; title: string; imageUrl: any; summary: string; }) => {
+                        {card?.map((el: { updatedAt: string; id: string; title: string; imageUrl: any; summary: string; }) => {
                             return (
-                                <Card key={el.id} title={el.title} imageUrl={el.imageUrl} summary={el.summary}
+                                <Card {...el} key={el.id} title={el.title} imageUrl={el.imageUrl}
+                                      summary={el.summary}
                                       updatedAt={el.updatedAt}/>
                             );
                         })}

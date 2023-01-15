@@ -1,26 +1,37 @@
 import React, {useEffect, useState} from 'react';
 import './SinglePage.scss'
 import EastIcon from "@mui/icons-material/East";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import {useHttp} from "../../hooks/useHttp";
 
-const SinglePage = ({title, imageUrl, id, summary}: any) => {
-    const [singleBlog, setSingleBlog] = useState();
+interface Blog {
+    title: string,
+    imageUrl: string,
+    summary: string
+}
+
+const SinglePage = ({title, imageUrl, summary}: any) => {
+    const {id} = useParams()
+    const [singleBlog, setSingleBlog] = useState<Blog>();
     const {request} = useHttp();
 
+    useEffect(() => {
+        request(`https://api.spaceflightnewsapi.net/v3/articles/${id}`)
+            .then((response) => setSingleBlog(response))
+    }, [request])
 
 
     return (
         <ErrorBoundary>
             <div className={'event'}>
-                <img src={imageUrl}
+                <img src={singleBlog?.imageUrl}
                      className={'event_img'}
                      alt=""/>
                 <div className={'event_card'}
                      key={id}>
-                    <h1 className={'event_card-header'}>{title}</h1>
-                    <p className={'event_card-text'}>{summary}</p>
+                    <h1 className={'event_card-header'}>{singleBlog?.title}</h1>
+                    <p className={'event_card-text'}>{singleBlog?.summary}</p>
                 </div>
                 <Link to={'/'}
                       className={'event_card-button'}>

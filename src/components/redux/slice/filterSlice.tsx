@@ -10,7 +10,7 @@ const filterSlice = createSlice({
     reducers: {
         FILTER_BY_SEARCH(state, action) {
             const {blog} = action.payload
-            state.filteredSearch = blog.filter(((blog: any) => blog === action.payload))
+            state.filteredSearch = blog.filter(((blog: any) => blog === blog.id))
         },
     }
 })

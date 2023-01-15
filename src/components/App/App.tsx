@@ -10,7 +10,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path={'/'} element={<Main/>}/>
-                    <Route path={'/event'} element={<SinglePage/>}/>
+                    <Route path={'/event/:id'} element={<SinglePage/>}/>
                 </Routes>
             </BrowserRouter>
         </Provider>

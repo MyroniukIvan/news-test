@@ -19,10 +19,12 @@ Card {
 .card_content {
 
   &-button {
+
+    width: fit-content;
     padding: 5px;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 5px;
     border: none;
