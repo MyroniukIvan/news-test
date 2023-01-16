@@ -3,7 +3,7 @@ import Main from "../../pages/Main/Main";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import SinglePage from "../../pages/SinglePage/SinglePage";
 import {Provider} from "react-redux";
-import store from "../redux/store";
+import {store} from "../../redux/store";
 function App() {
     return (
         <Provider store={store}>

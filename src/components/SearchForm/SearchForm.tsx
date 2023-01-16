@@ -1,13 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './SearchForm.scss';
 import SearchIcon from '@mui/icons-material/Search';
-import card from '../../pages/Main/Main';
 
-const SearchPanel = ({value, onChange}: { value: any, onChange: any }) => {
-    const [counter, setCounter] = useState(0);
-    useEffect(() => {
-        setCounter(0)
-    }, [])
+const SearchPanel = ({value, onChange, resultsCount}: { value: any, onChange: any, resultsCount: number }) => {
 
 
     return (
@@ -22,7 +17,7 @@ const SearchPanel = ({value, onChange}: { value: any, onChange: any }) => {
                 value={value}
                 onChange={onChange}/>
             <div className={'search_form-results'}>
-                <p>Results: {counter}</p>
+                <p>Results: {resultsCount}</p>
             </div>
         </div>)
 
