@@ -19,7 +19,7 @@ export default function RecipeReviewCard(
         if (!matches) {
             return truncateText(text)
         }
-        const match = matches.find(match => match.key === key);
+        const match = matches.find((match) => match.key === key);
         if (match) {
             return match.indices.map(([from, to], i, arr) => {
                 return (
@@ -79,6 +79,7 @@ export default function RecipeReviewCard(
                         </Typography>
                     </div>
                     <Typography sx={{
+                        maxHeight: '96px',
                         height: "96px",
                         fontSize: "16px",
                         width: '100%',

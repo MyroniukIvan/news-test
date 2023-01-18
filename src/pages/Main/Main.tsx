@@ -23,7 +23,7 @@ const Main = () => {
         return new Fuse(data, {
             keys: ['title', 'summary'],
             includeMatches: true,
-            findAllMatches: true
+            findAllMatches: false,
         })
     }, [data])
 
