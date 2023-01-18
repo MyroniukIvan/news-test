@@ -3,37 +3,52 @@
     width: 100%;
     height: 245px;
     object-fit: cover;
+    position: absolute;
+    top: 0;
   }
 
   &_card {
     z-index: 1;
-    margin: 40px;
-    height: auto;
+    margin-top: 150px;
+    margin-right: 75px;
+    margin-left: 75px;
+    height: 100%;
     position: relative;
-    padding: 75px;
-    bottom: 120px;
     background: #FFFFFF;
     border: 1px solid #EAEAEA;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
 
-    &-icon {
-      transform: rotate(180deg);
+
+
+    &-wrapper {
+      padding-right: 75px;
+      padding-left: 75px;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 17px;
     }
 
+    &-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+
     &-button {
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 150%;
-      color: #363636;
-      padding: 10px;
+      white-space: nowrap;
+      margin-left: 150px;
       width: auto;
       display: flex;
       gap: 3px;
       align-items: center;
-      position: fixed;
-      bottom: 10%;
-      left: 10%;
+
+
 
       &:hover {
         background: #FFFFFF;
@@ -43,16 +58,14 @@
     }
 
     &-header {
-      text-align: center;
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 29px;
+      padding-top: 35px;
       color: #363636;
     }
 
     &-text {
-      text-align: left;
-      font-weight: 400;
+      padding-bottom: 50px;
+      padding-left: 75px;
+      padding-right: 75px;
       font-size: 18px;
       line-height: 150%;
     }
@@ -61,14 +74,29 @@
 
 
 @media screen and (max-width: 420px) {
-  .event_card-button {
-    width: 20%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    margin: 20px;
-    font-size: 10px;
-    z-index: 1;
-  }
+  .event_card {
+    margin-top: 75px;
+    margin-left: 30px;
+    margin-right: 30px;
 
+    &-header {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
+    &-text {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
+    &-button {
+      width: 20%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      margin: 20px;
+      font-size: 10px;
+      z-index: 1;
+    }
+  }
 }

@@ -1,16 +1,15 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import Fuse from "fuse.js";
-import './Main.scss'
 import SearchForm from "../../components/SearchForm/SearchForm";
 import Card from '../../components/Card/Card';
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import {useGetArticlesQuery} from "../../redux/reducers/arcticles";
+import './Main.scss'
 
 type RangeTuple = [number, number]
 export type FuseResultMatch = {
     indices: RangeTuple[]
     key?: string
-    refIndex?: number
     value?: string
 }
 
