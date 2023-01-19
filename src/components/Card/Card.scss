@@ -91,4 +91,7 @@ a {
 
 .highlighted {
   background: rgba(255, 246, 25, 0.63);
+  &:last-child {
+    background: rgba(255, 246, 25, 0.63);
+  }
 }

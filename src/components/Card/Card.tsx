@@ -15,20 +15,22 @@ export default function RecipeReviewCard(
     {title, updatedAt, summary, imageUrl, id, matches}:
         { updatedAt: string, summary: string, title: string, imageUrl: any, id: any, matches: FuseResultMatch[] }) {
 
+
     const renderText = (text: string, key: string) => {
         if (!matches) {
             return truncateText(text)
         }
         const match = matches.find((match) => match.key === key);
         if (match) {
-            return match.indices.map(([from, to], i, arr) => {
+            return match.indices.map(([from, to = TEXT_LIMIT], i, arr) => {
+
                 return (
                     <>
                         <span>
                             {i === 0 && (text.slice(0, from) ?? '')}
                         </span>
                         <span className="highlighted">
-                            {text.slice(from, to) ?? ''}
+                            {text.slice(from, to) ?? text[0]}
                         </span>
                         <span>
                             {arr[i + 1] ? (text.slice(to, arr[i + 1][0]) ?? '') : (text.slice(to, arr.length ?? ''))}
@@ -37,12 +39,11 @@ export default function RecipeReviewCard(
                 )
             })
         } else {
-            return text.slice(0, 100);
+            return text.slice(0, TEXT_LIMIT);
         }
     }
-
     const truncateText = (str: string) => {
-        return str.length > TEXT_LIMIT ? `${str.slice(0, TEXT_LIMIT)}` + '...' : str;
+        return str.length > TEXT_LIMIT ? `${str.slice(0, TEXT_LIMIT)}...` : str;
     }
 
     return (
@@ -74,17 +75,20 @@ export default function RecipeReviewCard(
                         <Typography sx={{
                             fontStyle: "normal",
                             fontSize: "24px",
-                            lineHeight: "29px",}}>
+                            lineHeight: "29px",
+                        }}>
                             {title ? renderText(title, 'title') : 'There is no title for this article'}
                         </Typography>
                     </div>
                     <Typography sx={{
-                        maxHeight: '96px',
+                        whiteSpace: 'pre-wrap',
+                        textOverflow: "ellipsis",
+                        overflow: 'hidden',
                         height: "96px",
                         fontSize: "16px",
                         width: '100%',
                         lineHeight: "150%",
-                    }} variant="body2" color="text.main">
+                    }}>
                         {summary ? renderText(summary, 'summary') : 'There is no description for this blog!'}
                     </Typography>
                     <div className={'card_content-button'}>

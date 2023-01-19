@@ -19,11 +19,16 @@ const Main = () => {
     const [filteredData, setFilteredData] = useState<any[]>([]);
     const [matches, setMatches] = useState<FuseResultMatch[][]>([])
     const {data} = useGetArticlesQuery('');
+
     const fuse = useMemo(() => {
         return new Fuse(data, {
             keys: ['title', 'summary'],
             includeMatches: true,
-            findAllMatches: false,
+            shouldSort: true,
+            findAllMatches: true,
+            ignoreLocation: true,
+            isCaseSensitive: false,
+            threshold: 0.2,
         })
     }, [data])
 
