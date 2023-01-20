@@ -40,7 +40,6 @@ const Main = () => {
     useEffect(() => {
         if (data && search) {
             const searchResult = fuse.search(search)
-            console.log(searchResult);
             setFilteredData(searchResult.map((el) => el.item))
             setMatches(searchResult.map((el) => el.matches as unknown as FuseResultMatch[]))
         } else if (data) {
